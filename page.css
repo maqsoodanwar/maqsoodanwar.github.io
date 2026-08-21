@@ -1,0 +1,391 @@
+/* ================================
+   RESET & GLOBAL STYLES
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+    color: #ffffff;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.15), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.18), transparent 30%),
+        linear-gradient(135deg, #050816, #0b1026 50%, #070b18);
+
+    overflow-x: hidden;
+}
+
+
+/* ================================
+   BACKGROUND EFFECT
+================================ */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+
+    top: -150px;
+    right: -150px;
+
+    background: #00e5ff;
+    opacity: 0.08;
+    filter: blur(100px);
+
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+
+    bottom: -150px;
+    left: -150px;
+
+    background: #8a2be2;
+    opacity: 0.10;
+    filter: blur(100px);
+
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
+/* ================================
+   MAIN HEADING
+================================ */
+
+h1 {
+    position: relative;
+    z-index: 1;
+
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 800;
+
+    text-align: center;
+    letter-spacing: -2px;
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #00e5ff,
+        #8a2be2,
+        #ffffff
+    );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: gradientText 6s linear infinite;
+}
+
+
+/* ================================
+   INTRO PARAGRAPH
+================================ */
+
+p {
+    position: relative;
+    z-index: 1;
+
+    max-width: 650px;
+
+    text-align: center;
+    line-height: 1.8;
+
+    font-size: 1.1rem;
+    color: #c7d2fe;
+
+    margin-bottom: 35px;
+
+    animation: fadeUp 1s ease forwards;
+}
+
+
+/* ================================
+   NAVIGATION
+================================ */
+
+.menu {
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.08);
+
+    animation: fadeUp 1s ease 0.2s backwards;
+}
+
+
+/* ================================
+   NAV LINKS
+================================ */
+
+.nav-link {
+    position: relative;
+
+    display: inline-block;
+
+    padding: 12px 24px;
+
+    color: #dbeafe;
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    border-radius: 12px;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Hover background */
+
+.nav-link:hover {
+    color: #346186;
+
+    background: rgba(5, 3, 0, 0.911);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 5px 20px rgba(255, 0, 0, 0.15);
+}
+
+
+/* Animated underline */
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 5px;
+
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #00e5ff,
+        #8a2be2
+    );
+
+    border-radius: 10px;
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 55%;
+}
+
+
+/* ================================
+   WHATSAPP BUTTON
+================================ */
+
+.whatsapp {
+    position: fixed;
+
+    left: 80px;
+    top: 110px;
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 22px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    background: linear-gradient(
+        135deg,
+        #25d366,
+        #128c7e
+    );
+
+    border-radius: 50px;
+
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    box-shadow:
+        0 8px 25px rgba(37, 211, 102, 0.35);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.whatsapp i {
+    font-size: 1.4rem;
+}
+
+.whatsapp:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 12px 35px rgba(37, 211, 102, 0.5);
+}
+
+   
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes gradientText {
+    0% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+}
+
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================
+   MOBILE RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    .menu {
+        width: 100%;
+        max-width: 350px;
+
+        gap: 5px;
+        padding: 7px;
+    }
+
+    .nav-link {
+        padding: 11px 15px;
+        font-size: 0.9rem;
+    }
+
+    .whatsapp {
+        right: 15px;
+        bottom: 15px;
+
+        width: 55px;
+        height: 55px;
+
+        padding: 0;
+
+        justify-content: center;
+
+        border-radius: 50%;
+    }
+
+    .whatsapp span {
+        display: none;
+    }
+
+    .whatsapp i {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ================================
+   VERY SMALL SCREENS
+================================ */
+
+@media (max-width: 360px) {
+
+    h1 {
+        font-size: 2.1rem;
+    }
+
+    .nav-link {
+        padding: 10px 11px;
+        font-size: 0.82rem;
+    }
+}

@@ -1,0 +1,521 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+
+    /* Main background */
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 212, 255, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(124, 58, 237, 0.20),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #050816 0%,
+            #0b1024 50%,
+            #050816 100%
+        );
+}
+
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    min-height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px 30px;
+
+    background: rgba(5, 8, 22, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Navigation container */
+
+.menu b {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Navigation links */
+
+.nav-link {
+    position: relative;
+
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+    border-radius: 12px;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Hover background */
+
+.nav-link:hover {
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    transform: translateY(-2px);
+}
+
+
+/* Animated underline */
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 5px;
+
+    width: 0;
+    height: 2px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #00d9ff,
+        #7c3aed
+    );
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 55%;
+}
+
+
+/* =========================================
+   MAIN ABOUT CARD
+   ========================================= */
+
+main {
+    position: relative;
+
+    width: min(1000px, 90%);
+
+    margin: 90px auto;
+
+    padding: 80px 70px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.40),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    overflow: hidden;
+
+    animation: cardAppear 0.9s ease forwards;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* Card hover */
+
+main:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(0, 217, 255, 0.25);
+
+    box-shadow:
+        0 40px 100px rgba(0, 0, 0, 0.50),
+        0 0 60px rgba(0, 217, 255, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================
+   DECORATIVE GLOW
+   ========================================= */
+
+main::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -160px;
+    left: -120px;
+
+    background: #00d9ff;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.18;
+
+    pointer-events: none;
+}
+
+
+main::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -130px;
+    bottom: -160px;
+
+    background: #7c3aed;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.20;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   ABOUT HEADING
+   ========================================= */
+
+h1 {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 28px;
+
+    font-size: clamp(45px, 8vw, 82px);
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #a5f3fc 45%,
+        #a78bfa 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: titleAppear 1s ease forwards;
+}
+
+
+/* Small glow behind heading */
+
+h1::selection {
+    color: #ffffff;
+    background: #7c3aed;
+}
+
+
+/* =========================================
+   DESCRIPTION
+   ========================================= */
+
+p {
+    position: relative;
+    z-index: 2;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #b8c4dc;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    letter-spacing: 0.2px;
+
+    animation: textAppear 1s ease 0.2s forwards;
+
+    opacity: 0;
+}
+
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+@keyframes titleAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   TEXT SELECTION
+   ========================================= */
+
+::selection {
+    color: #ffffff;
+    background: #7c3aed;
+}
+
+
+/* =========================================
+   CUSTOM SCROLLBAR
+   ========================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        #00d9ff,
+        #7c3aed
+    );
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        180deg,
+        #7c3aed,
+        #00d9ff
+    );
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .menu {
+        min-height: 68px;
+        padding: 12px 15px;
+    }
+
+    .menu b {
+        gap: 3px;
+    }
+
+    .nav-link {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    main {
+        width: 92%;
+
+        margin: 60px auto;
+
+        padding: 60px 30px;
+
+        border-radius: 25px;
+    }
+
+    h1 {
+        font-size: clamp(45px, 12vw, 65px);
+
+        letter-spacing: -2px;
+    }
+
+    p {
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .menu {
+        padding: 10px;
+    }
+
+    .menu b {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 2px;
+    }
+
+    .nav-link {
+        padding: 9px 10px;
+
+        font-size: 13px;
+    }
+
+    main {
+        width: 92%;
+
+        margin: 40px auto;
+
+        padding: 50px 20px;
+
+        border-radius: 22px;
+    }
+
+    h1 {
+        font-size: 43px;
+
+        letter-spacing: -1.5px;
+
+        margin-bottom: 22px;
+    }
+
+    p {
+        font-size: 15px;
+
+        line-height: 1.75;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
